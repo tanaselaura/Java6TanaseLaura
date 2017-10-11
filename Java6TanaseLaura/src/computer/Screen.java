@@ -16,27 +16,13 @@
          
 
          public void display(String valueToDisplay){
-             valueToDisplay = valueToDisplay.replace(".xml", "");
              screenMemory = valueToDisplay;
               System.out.println("Display: " + screenMemory);
              
               
          }
 
-         public void clear(){
-             System.out.println(0);
-             screenMemory = "0";
-         }
- 
 
-     public String getValoareAfisata() {
-         return screenMemory;
-     }
- 
- 
-     public void setValoareAfisata(String valoareAfisata) {
-         this.screenMemory = valoareAfisata;
-     }
  
      public void displayMessage(String message){
          System.out.println(message);
