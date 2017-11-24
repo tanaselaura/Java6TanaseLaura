@@ -29,7 +29,7 @@ public class Calculator {
     }
     
      public Double getNumber2(){
-        return(number1);
+        return(number2);
     }
     public void setNumber2(Double newNumber2){
         number2 = newNumber2;

@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Frame {
     private Screen ecran;
     private Button[] buton;
-    private Character markupsOfButtons[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/' };
+    private final Character markupsOfButtons[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/' };
     private Calculator calculator;
     
          public Frame() {
@@ -72,9 +72,33 @@ public class Frame {
         ecran.display(calculator.calculateTotal().toString() );
         
     }
+
+    public Screen getEcran() {
+        return ecran;
+    }
+
+    public void setEcran(Screen ecran) {
+        this.ecran = ecran;
+    }
+
+    public Button[] getButon() {
+        return buton;
+    }
+
+    public void setButon(Button[] buton) {
+        this.buton = buton;
+    }
+
+    public Calculator getCalculator() {
+        return calculator;
+    }
+
+    public void setCalculator(Calculator calculator) {
+        this.calculator = calculator;
+    }
+    
     
 
         
-    
-    
+       
 }

@@ -13,7 +13,8 @@
   public class Screen {
       
      private String screenMemory = "0";
-         
+
+    
 
          public void display(String valueToDisplay){
              screenMemory = valueToDisplay;
@@ -29,6 +30,13 @@
          
      }
       
-     
+       public String getScreenMemory() {
+        return screenMemory;
+    }
+
+    public void setScreenMemory(String screenMemory) {
+        this.screenMemory = screenMemory;
+    }
+       
      
   }
