@@ -1,6 +1,6 @@
 /*
  * 
- * Computer frame
+ * Computer 
  * 
  */
 package computer;
@@ -20,7 +20,7 @@ public class Calculator {
     
     
     private Screen ecran;
-    
+    // getters and setters
     public Double getNumber1(){
         return(number1);
     }

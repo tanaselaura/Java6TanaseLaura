@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Computer frame
  */
 package computer;
 
@@ -16,12 +14,13 @@ public class Frame {
     private Button[] buton;
     private final Character markupsOfButtons[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/' };
     private Calculator calculator;
-    
+         //constructor
          public Frame() {
          ecran = new Screen();
          calculator = new Calculator();
          buton =  new Button[15];
          int i = 0;
+         //draw characters on buttons
          for(Character currentMarkup:markupsOfButtons){
              Button newButton = new Button();
              newButton.drawOnButton(currentMarkup);
@@ -29,16 +28,22 @@ public class Frame {
              i++;
          }
      }
-    
+    /**
+     * Methods starts the calculator
+     */
     public void start() {
          ecran.display("0");
      }
-    
+    /**
+     * Methods displays message on screen
+     */
     public void displayMessageOnScreen(String message){
         ecran.displayMessage(message);
         
     }
-    
+    /**
+     * Methods reads from keyboard first and second number
+     */
     public void afiseazaOperand(){
          Scanner scan = new Scanner(System.in);
          String readit = scan.nextLine();
@@ -50,7 +55,9 @@ public class Frame {
              calculator.setNumber2(val);
     }
     
-    
+    /**
+     * Methods reads from keyboard operator
+     */
     public void afiseazaOoperator(){
         Scanner scan = new Scanner(System.in);
         String readit = scan.nextLine();
@@ -60,7 +67,9 @@ public class Frame {
         
     }
     
-
+    /**
+     * Methods reads from keyboard =
+     */
     public void afiseazaequal() {
          Scanner scan = new Scanner(System.in);
         Character val = scan.next().charAt(0);
@@ -72,7 +81,7 @@ public class Frame {
         ecran.display(calculator.calculateTotal().toString() );
         
     }
-
+    //getters and setters
     public Screen getEcran() {
         return ecran;
     }

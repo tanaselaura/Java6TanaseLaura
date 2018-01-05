@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * calculator
  */
 package simplecomputer;
 
@@ -20,21 +18,22 @@ public class TestCalculator {
         double num1;
         double num2;
         double total;
-        
+        //add first number
         System.out.println( "Please introduce your first number:");
         Scanner reader = new Scanner(System.in);
         num1 = reader.nextDouble();
-
+        //add operator
         System.out.println("Please introduce operator(+/-/*//)");
         char c = reader.next().charAt(0);
        
-        
+       //add second number
          System.out.println( "Please introduce your second number:");
         num2 = reader.nextDouble();
-        
+        //add equal
         System.out.println( " Please introduce \"=\"");
         char equal = reader.next().charAt(0);
         
+        //calculate result
         if (equal == '='){
             switch (c) {
                 case '+':
