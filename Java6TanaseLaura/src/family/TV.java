@@ -8,7 +8,7 @@ package family;
  * @author Laurici
  */
 public class TV {
-   public volatile boolean isFavoriteShow = true;
+   public volatile boolean isFavoriteShow = false;
 
     //tv shows boring shows
      public synchronized void ruleazaEmisiuneaPlictisitoare() {

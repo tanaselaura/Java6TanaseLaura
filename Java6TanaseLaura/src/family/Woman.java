@@ -29,8 +29,7 @@ public class Woman extends Thread{
     }
     //woman sleeps
      private void womanIsSleeping(TV tv){
-         if (tv.isFavoriteShow == false){
-             isSleaping = true;
+         if (isSleaping){  
              System.out.println("Woman is sleaping... and snoring");
          }
 

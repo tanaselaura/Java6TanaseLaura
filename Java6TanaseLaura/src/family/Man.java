@@ -3,6 +3,9 @@
  */
 package family;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Laurici
@@ -36,6 +39,11 @@ public class Man extends Thread{
         Woman woman = new Woman(c, televizor);
         //favorite show appears
         televizor.ruleazaEmisiuneaNeplictisitoare();
+        try {
+            sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Man.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //man wakes up woman
         watchinTV(televizor, woman);
      

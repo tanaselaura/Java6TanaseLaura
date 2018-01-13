@@ -24,8 +24,8 @@ public class FamilyScene {
         tigara.start();
         //televizor.start();
         aspirator.start();
-        femeie.start();
         barbat.start();
+        femeie.start();
         //set priorities
         barbat.setPriority(1);
         
