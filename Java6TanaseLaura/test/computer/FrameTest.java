@@ -5,28 +5,49 @@
  */
 package computer;
 
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
+import org.junit.Rule;
+import org.junit.contrib.java.lang.system.SystemOutRule;
+import org.junit.contrib.java.lang.system.TextFromStandardInputStream;
 
 /**
  *
  * @author Laurici
+ * This test needs system-rules library to work
  */
 public class FrameTest {
     
-    public FrameTest() {
+    @Rule
+    public final TextFromStandardInputStream systemInMock = TextFromStandardInputStream.emptyStandardInputStream();
+     @Rule
+    public final SystemOutRule systemOutMock = new SystemOutRule().enableLog();
+    public static Frame frame;
+    
+    @BeforeClass
+    public static void setUp() {
+        frame = new Frame();
     }
 
+    @AfterClass
+    public static void restoreStreams() {
+        System.setIn(System.in);
+        System.setOut(System.out);
+        System.setErr(System.err);
+    }
+    
     /**
      * Test of start method, of class Frame.
      */
     @Test
     public void testStart() {
         System.out.println("start");
-        Frame instance = new Frame();
-        instance.start();
-        String valAfisat = instance.getEcran().getScreenMemory();
-        assertEquals(null, valAfisat);
+        frame.start();
+        Integer expectedResult = 0;
+        Integer valAfisat = Integer.parseInt(frame.getEcran().getScreenMemory());
+        assertEquals(expectedResult, valAfisat);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -37,9 +58,14 @@ public class FrameTest {
      */
     @Test
     public void testAfiseazaOperand() {
-        System.out.println("afiseazaOperand");
-        Frame instance = new Frame();
-        instance.afiseazaOperand();
+   
+        systemInMock.provideLines("4", "5");
+        frame.afiseazaOperand();
+        assertEquals(new Double("4.0"), frame.getCalculator().getNumber1());
+        frame.afiseazaOperand();
+        assertEquals(new Double("4.0"), frame.getCalculator().getNumber1());
+        assertEquals(new Double("5.0"), frame.getCalculator().getNumber2());
+        
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -48,74 +74,39 @@ public class FrameTest {
      * Test of afiseazaOoperator method, of class Frame.
      */
     @Test
-    public void testAfiseazaOoperator() {
+    public void testAfiseazaOperator() {
         System.out.println("afiseazaOoperator");
-        Frame instance = new Frame();
-        instance.afiseazaOoperator();
+        systemInMock.provideLines("+");
+        Character expectResult = '+';
+        frame.afiseazaOperator();
+        assertEquals(expectResult, frame.getCalculator().getOperator());
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of afiseazaequal method, of class Frame.
-     */
-    @Test
-    public void testAfiseazaequal() {
-        System.out.println("afiseazaequal");
-        Frame instance = new Frame();
-        instance.afiseazaequal();
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
 
     /**
      * Test of afiseazaRezultat method, of class Frame.
      */
     @Test
     public void testAfiseazaRezultat() {
-        System.out.println("afiseazaRezultat");
-        Frame instance = new Frame();
-        instance.afiseazaRezultat();
+        frame.afiseazaRezultat();
+        assertEquals("Display: 9.0" + System.getProperty("line.separator"), systemOutMock.getLog());
+        
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getEcran method, of class Frame.
-     */
-    @Test
-    public void testGetEcran() {
-        System.out.println("getEcran");
-        Frame instance = new Frame();
-        Screen expResult = null;
-        Screen result = instance.getEcran();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setEcran method, of class Frame.
-     */
-    @Test
-    public void testSetEcran() {
-        System.out.println("setEcran");
-        Screen ecran = null;
-        Frame instance = new Frame();
-        instance.setEcran(ecran);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
+  
     /**
      * Test of getButon method, of class Frame.
      */
     @Test
     public void testGetButon() {
         System.out.println("getButon");
-        Frame instance = new Frame();
-        Button[] expResult = null;
-        Button[] result = instance.getButon();
+        Button[] expResult = new Button[0];
+        frame.setButon(new Button[0]);
+        Button[] result = frame.getButon();
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -127,38 +118,12 @@ public class FrameTest {
     @Test
     public void testSetButon() {
         System.out.println("setButon");
-        Button[] buton = null;
-        Frame instance = new Frame();
-        instance.setButon(buton);
+        Button[] buton = new Button[0];
+        frame.setButon(buton);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getCalculator method, of class Frame.
-     */
-    @Test
-    public void testGetCalculator() {
-        System.out.println("getCalculator");
-        Frame instance = new Frame();
-        Calculator expResult = null;
-        Calculator result = instance.getCalculator();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setCalculator method, of class Frame.
-     */
-    @Test
-    public void testSetCalculator() {
-        System.out.println("setCalculator");
-        Calculator calculator = null;
-        Frame instance = new Frame();
-        instance.setCalculator(calculator);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+   
     
 }

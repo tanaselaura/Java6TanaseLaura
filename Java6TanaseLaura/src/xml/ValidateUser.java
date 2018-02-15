@@ -43,7 +43,7 @@ public class ValidateUser {
         
         try {
          //Add xml file's path
-         File inputFile = new File("C:\\Users\\Laurici\\Documents\\NetBeansProjects\\clone\\Java6TanaseLaura\\Java6TanaseLaura\\src\\xml\\Users.xml");
+          File inputFile = new File("C:\\Users\\Laurici\\Documents\\NetBeansProjects\\clone\\Java6TanaseLaura\\Java6TanaseLaura\\src\\xml\\Users.xml");
          //Create a factory instance to obtain a parser
          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
          dbFactory.setValidating(true);

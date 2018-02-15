@@ -18,13 +18,13 @@ public class TestCalculator {
         frame.afiseazaOperand();
         //Read first operator
         frame.displayMessageOnScreen("Please introduce your first operator: ");
-        frame.afiseazaOoperator();
+        frame.afiseazaOperator();
         //Read method
         frame.displayMessageOnScreen("Please introduce your second operand: ");
         frame.afiseazaOperand();
         //Read second operator
         frame.displayMessageOnScreen("Please introduce equal: ");
-        frame.afiseazaequal();
+        frame.afiseazaEqual();
         //press equal
         frame.afiseazaRezultat();
         //afiseaza rezultat

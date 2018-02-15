@@ -14,7 +14,7 @@ public class Man extends Thread{
     private Woman w;
     private VacuumCleaner vc;
     private TV  tv;
-     private Cigar tigara;
+    private Cigar tigara;
     
     /**
      *

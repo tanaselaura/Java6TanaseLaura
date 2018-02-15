@@ -10,9 +10,11 @@ import java.util.Scanner;
  * @author Laurici
  */
 public class Frame {
+    
     private Screen ecran;
     private Button[] buton;
     private final Character markupsOfButtons[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/' };
+    
     private Calculator calculator;
          //constructor
          public Frame() {
@@ -28,6 +30,7 @@ public class Frame {
              i++;
          }
      }
+         
     /**
      * Methods starts the calculator
      */
@@ -58,26 +61,23 @@ public class Frame {
     /**
      * Methods reads from keyboard operator
      */
-    public void afiseazaOoperator(){
+    public void afiseazaOperator(){
         Scanner scan = new Scanner(System.in);
         String readit = scan.nextLine();
         Character val = readit.charAt(0);
         System.out.println("You introduced operand: " + val );
-        calculator.setOperator(val);
-        
+        calculator.setOperator(val);  
     }
     
     /**
      * Methods reads from keyboard =
      */
-    public void afiseazaequal() {
-         Scanner scan = new Scanner(System.in);
+    public void afiseazaEqual() {
+        Scanner scan = new Scanner(System.in);
         Character val = scan.next().charAt(0);
-      
-    
     }
+    
     public void afiseazaRezultat(){
-       
         ecran.display(calculator.calculateTotal().toString() );
         
     }
@@ -105,9 +105,5 @@ public class Frame {
     public void setCalculator(Calculator calculator) {
         this.calculator = calculator;
     }
-    
-    
-
-        
-       
+  
 }
